@@ -1,7 +1,5 @@
 # Shaiya Essentials
 
-A client library dedicated to the [Shaiya Essentials](https://www.elitepvpers.com/forum/shaiya-pserver-guides-releases/5171510-release-shaiya-essentials.html) project.
-
 ## Environment
 
 Windows 10
