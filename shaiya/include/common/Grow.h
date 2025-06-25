@@ -1,9 +1,9 @@
 #pragma once
-#include "include/shaiya/common.h"
+#include <cstdint>
 
 namespace shaiya
 {
-    enum struct Grow : UINT8
+    enum struct Grow : uint8_t
     {
         Easy,
         Normal,
