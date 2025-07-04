@@ -104,15 +104,6 @@ namespace title
 
         CStaticText::Draw(user->title.text, int(posX), int(posY), extrusion, color);
     }
-
-    void reset(CCharacter* user)
-    {
-        if (!user->title.text)
-            return;
-
-        user->title.text->texture->Release();
-        user->title.text = nullptr;
-    }
 }
 
 unsigned u0x453E81 = 0x453E81;
@@ -175,25 +166,6 @@ void __declspec(naked) naked_0x41275F()
     }
 }
 
-unsigned u0x59F0C8 = 0x59F0C8;
-void __declspec(naked) naked_0x59F0C3()
-{
-    __asm
-    {
-        pushad
-
-        push esi
-        call title::reset
-        add esp,0x4
-
-        popad
-
-        // original 
-        cmp byte ptr[esp+0x14],0x0
-        jmp u0x59F0C8
-    }
-}
-
 void hook::title()
 {
     util::detour((void*)0x453E7C, naked_0x453E7C, 5);
@@ -201,6 +173,4 @@ void hook::title()
     util::detour((void*)0x41830D, naked_0x41830D, 5);
     // increase chat balloon height (1.5 to 1.75)
     util::detour((void*)0x41275F, naked_0x41275F, 6);
-    // 0x507 packet method
-    util::detour((void*)0x59F0C3, naked_0x59F0C3, 5);
 }
