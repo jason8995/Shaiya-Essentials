@@ -256,7 +256,7 @@ namespace shaiya
         // static functions
 
         static void DrawRect(D3DCOLOR argb, int x, int y, int w, int h);
-        static void MsgTextOut(int messageType, int messageNumber, int unknown);
+        static void SysMsgToChatBox(int messageType, int messageNumber, int unknown);
         static bool PlayWav(const char* wavFileName, D3DVECTOR* origin, float volume, bool repeat);
 
         // D3DX utilities (deprecated)
@@ -266,7 +266,9 @@ namespace shaiya
         static D3DXMATRIX* D3DXMatrixRotationZ(D3DXMATRIX* out, float angle);
 
         // CRT
-        static void* malloc(size_t size);
+
+        static void operator_delete(void* block);
+        static void* operator_new(size_t size);
     };
     #pragma pack(pop)
 

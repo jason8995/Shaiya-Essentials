@@ -40,7 +40,7 @@ int command_handler(char* text)
 
     if (!argc)
     {
-        Static::MsgTextOut(31, 253, 12);
+        Static::SysMsgToChatBox(31, 253, 12);
         return 0;
     }
 

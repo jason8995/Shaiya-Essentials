@@ -47,7 +47,7 @@ namespace quick_slot
 
     void create(Unknown* unknown)
     {
-        auto block = Static::malloc(sizeof(CQuickSlot));
+        auto block = Static::operator_new(sizeof(CQuickSlot));
         if (!block)
             return;
 
