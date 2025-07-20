@@ -73,10 +73,13 @@ namespace title
 
     void hook(CCharacter* user, float x, float y, float extrusion)
     {
-        if (!user->mantleType || !user->mantleTypeId)
+        auto cloakType = user->equipment.type[EquipmentSlot::Cloak];
+        auto cloakTypeId = user->equipment.typeId[EquipmentSlot::Cloak];
+
+        if (!cloakType)
             return;
 
-        auto itemInfo = CDataFile::GetItemInfo(user->mantleType, user->mantleTypeId);
+        auto itemInfo = CDataFile::GetItemInfo(cloakType, cloakTypeId);
         if (!itemInfo)
             return;
 
