@@ -104,6 +104,9 @@
     <ClInclude Include="include\shaiya\include\ExcItem.h">
       <Filter>include\shaiya\include</Filter>
     </ClInclude>
+    <ClInclude Include="include\shaiya\include\CSheetStatus.h">
+      <Filter>include\shaiya\include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\dllmain.cpp">
@@ -127,7 +130,7 @@
     <ClCompile Include="src\custom_game.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\cmd.cpp">
+    <ClCompile Include="src\command.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\static.cpp">
@@ -139,7 +142,7 @@
     <ClCompile Include="src\vehicle.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\gui.cpp">
+    <ClCompile Include="src\input.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\packet.cpp">
@@ -173,6 +176,15 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\character.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\exp_view.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\weapon_step.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\patch.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>

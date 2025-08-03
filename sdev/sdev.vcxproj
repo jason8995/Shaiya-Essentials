@@ -21,6 +21,7 @@
     <ClInclude Include="include\shaiya\include\CPlayerData.h" />
     <ClInclude Include="include\shaiya\include\CQuickPotionSlot.h" />
     <ClInclude Include="include\shaiya\include\CQuickSlot.h" />
+    <ClInclude Include="include\shaiya\include\CSheetStatus.h" />
     <ClInclude Include="include\shaiya\include\CStaticText.h" />
     <ClInclude Include="include\shaiya\include\CTexture.h" />
     <ClInclude Include="include\shaiya\include\CWindow.h" />
@@ -49,19 +50,22 @@
     <ClCompile Include="include\shaiya\src\CWorldMgr.cpp" />
     <ClCompile Include="src\camera_limit.cpp" />
     <ClCompile Include="src\character.cpp" />
-    <ClCompile Include="src\cmd.cpp" />
+    <ClCompile Include="src\command.cpp" />
     <ClCompile Include="src\custom_game.cpp" />
     <ClCompile Include="src\equipment.cpp" />
-    <ClCompile Include="src\gui.cpp" />
+    <ClCompile Include="src\exp_view.cpp" />
+    <ClCompile Include="src\input.cpp" />
     <ClCompile Include="src\item_icon.cpp" />
     <ClCompile Include="src\dllmain.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\name_color.cpp" />
     <ClCompile Include="src\packet.cpp" />
+    <ClCompile Include="src\patch.cpp" />
     <ClCompile Include="src\quick_slot.cpp" />
     <ClCompile Include="src\static.cpp" />
     <ClCompile Include="src\title.cpp" />
     <ClCompile Include="src\vehicle.cpp" />
+    <ClCompile Include="src\weapon_step.cpp" />
     <ClCompile Include="src\window.cpp" />
   </ItemGroup>
   <ItemGroup>

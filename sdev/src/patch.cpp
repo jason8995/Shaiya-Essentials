@@ -1,5 +1,3 @@
-#define WIN32_LEAN_AND_MEAN
-#include <windows.h>
 #include <util/util.h>
 #include "include/main.h"
 
@@ -47,60 +45,12 @@ void __declspec(naked) naked_0x41E2BB()
     }
 }
 
-unsigned u0x528D96 = 0x528D96;
-void __declspec(naked) naked_0x528D8D()
+void hook::patch()
 {
-    __asm
-    {
-        pushad
-
-        push 0x11 // VK_CONTROL
-        call GetAsyncKeyState
-        shr ax,0xF
-        cmp ax,0x1
-
-        popad
-
-        jne original
-
-        cmp ecx,0xA
-        jl original
-
-        sub ecx,0xA // x10
-        mov dword ptr ds:[esi+0x4C],ecx
-        add word ptr ds:[esi+eax*0x2+0x40],0xA
-        jmp u0x528D96
-
-        original:
-        dec ecx // x1
-        mov dword ptr ds:[esi+0x4C],ecx
-        inc word ptr ds:[esi+eax*0x2+0x40]
-        jmp u0x528D96
-    }
-}
-
-unsigned u0x4E753B = 0x4E753B;
-void __declspec(naked) naked_0x4E7506()
-{
-    __asm
-    {
-        // CPlayerData->weaponStep[i]
-        movzx ecx,word ptr[ecx+edx*0x2+0x6268]
-        mov eax,ecx
-        jmp u0x4E753B
-    }
-}
-
-void hook::gui()
-{
-    // dungeon wings shadow workaround
+    // wings shadow workaround (dungeons)
     util::detour((void*)0x41F9C0, naked_0x41F9C0, 9);
     // evolution bug
     util::detour((void*)0x41E2BB, naked_0x41E2BB, 7);
-    // apply stats x10
-    util::detour((void*)0x528D8D, naked_0x528D8D, 9);
-    // return the exact weapon step value
-    util::detour((void*)0x4E7506, naked_0x4E7506, 8);
 
     // remove ep6 vehicle section (auction board)
     util::write_memory((void*)0x463FE0, 0x07, 1);
@@ -118,15 +68,4 @@ void hook::gui()
     util::write_memory((void*)0x583DED, 0x75, 1);
     // pet/wing lag workaround
     util::write_memory((void*)0x5881EE, 0x85, 1);
-    // pass false to a function that appends '0' 
-    // to exp text
-    util::write_memory((void*)0x4963DE, 0x00, 1);
-    util::write_memory((void*)0x496407, 0x00, 1);
-    util::write_memory((void*)0x4F9852, 0x00, 1);
-    util::write_memory((void*)0x529D05, 0x00, 1);
-    util::write_memory((void*)0x529E19, 0x00, 1);
-    util::write_memory((void*)0x594BA7, 0x00, 1);
-    // ignore exp multiplication
-    // note: does not affect locale 0 or 1 (different math)
-    util::write_memory((void*)0x4FA494, 0x44, 1);
 }
