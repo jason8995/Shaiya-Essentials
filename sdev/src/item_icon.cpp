@@ -14,12 +14,12 @@ void draw_item_icon(void* unknown, CItem* item, long x, long y, D3DCOLOR color)
     (*(LPFN)0x4B7240)(unknown, color, x, y, item->type, item->typeId, item->count, false, true);
 
     // skip lapis and fireworks
-    if (item->type == int(ItemType::Lapis) || item->type == int(ItemType::Other100))
+    if (item->type == std::to_underlying(ItemType::Lapis) || item->type == std::to_underlying(ItemType::Other100))
         return;
 
     for (const auto& typeId : item->gems)
     {
-        auto itemInfo = CDataFile::GetItemInfo(int(ItemType::Lapis), typeId);
+        auto itemInfo = CDataFile::GetItemInfo(static_cast<int>(ItemType::Lapis), typeId);
         if (!itemInfo)
             continue;
 
