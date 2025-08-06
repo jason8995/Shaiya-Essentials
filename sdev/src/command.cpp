@@ -40,7 +40,7 @@ int command_handler(char* text)
 
     if (!argc)
     {
-        Static::MsgTextOut(31, 253, 12);
+        Static::SysMsgToChatBox(31, 253, 12);
         return 0;
     }
 
@@ -302,7 +302,7 @@ void __declspec(naked) naked_0x41F816()
     }
 }
 
-void hook::cmd()
+void hook::command()
 {
     // get client config
     util::detour((void*)0x4094AD, naked_0x4094AD, 5);

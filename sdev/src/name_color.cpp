@@ -105,7 +105,10 @@ namespace name_color
 
     D3DCOLOR get_helmet_name_color(CCharacter* user)
     {
-        auto itemInfo = CDataFile::GetItemInfo(user->helmetType, user->helmetTypeId);
+        auto helmetType = user->equipment.type[EquipmentSlot::Helmet];
+        auto helmetTypeId = user->equipment.typeId[EquipmentSlot::Helmet];
+
+        auto itemInfo = CDataFile::GetItemInfo(helmetType, helmetTypeId);
         if (!itemInfo)
             return 0;
 

@@ -27,7 +27,7 @@ namespace vehicle
     {
         for (int i = 1; i <= UINT8_MAX; ++i)
         {
-            auto itemInfo = CDataFile::GetItemInfo(int(ItemType::Vehicle), i);
+            auto itemInfo = CDataFile::GetItemInfo(static_cast<int>(ItemType::Vehicle), i);
             if (!itemInfo)
                 continue;
 

@@ -6,16 +6,20 @@ extern "C" __declspec(dllexport) void DllExport();
 namespace hook
 {
     void camera_limit();
-    void cmd();
+    void character();
+    void command();
     void custom_game();
     void equipment();
-    void gui();
+    void exp_view();
+    void input();
     void item_icon();
     void name_color();
     void packet();
+    void patch();
     void quick_slot();
     void title();
     void vehicle();
+    void weapon_step();
     void window();
 }
 

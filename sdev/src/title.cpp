@@ -73,10 +73,13 @@ namespace title
 
     void hook(CCharacter* user, float x, float y, float extrusion)
     {
-        if (!user->mantleType || !user->mantleTypeId)
+        auto cloakType = user->equipment.type[EquipmentSlot::Cloak];
+        auto cloakTypeId = user->equipment.typeId[EquipmentSlot::Cloak];
+
+        if (!cloakType)
             return;
 
-        auto itemInfo = CDataFile::GetItemInfo(user->mantleType, user->mantleTypeId);
+        auto itemInfo = CDataFile::GetItemInfo(cloakType, cloakTypeId);
         if (!itemInfo)
             return;
 
@@ -93,16 +96,16 @@ namespace title
         {
             user->title.text = CStaticText::Create(text);
             auto w = CStaticText::GetTextWidth(text);
-            user->title.pointX = int(w * 0.5);
+            user->title.pointX = static_cast<int>(w * 0.5);
         }
 
         if (!user->title.text)
             return;
 
-        auto posY = y - 30.0;
-        auto posX = x - user->title.pointX;
+        auto posY = static_cast<int>(y - 30.0);
+        auto posX = static_cast<int>(x - user->title.pointX);
 
-        CStaticText::Draw(user->title.text, int(posX), int(posY), extrusion, color);
+        CStaticText::Draw(user->title.text, posX, posY, extrusion, color);
     }
 
     void reset(CCharacter* user)
